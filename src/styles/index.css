@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap
+}
+
+@tailwind base;
+@layer base {
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-gray-800;
+    }
+
+    html,
+    body {
+        @apply font-custom;
+        touch-action: manipulation;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overscroll-behavior-x: none;
+    }
+
+    a {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+}
+
+
+@tailwind components;
+
+@layer components {
+    .btn {
+        @apply cursor-pointer inline-flex justify-center items-center transition ease-in-out text-center text-sm font-normal border focus:ring-0 focus:outline-none;
+    }
+
+    .btn-primary {
+        @apply bg-sky-600 border-sky-600 text-white;
+    }
+
+    .btn-primary:not(:disabled) {
+        @apply hover:bg-sky-500 hover:border-sky-500 active:border-sky-500 active:bg-sky-600 focus-visible:ring focus-visible:ring-offset-0
+    }
+
+    .btn-outline {
+        @apply bg-white border-neutral-500 text-gray-900;
+    }
+
+    .btn-outline:not(:disabled) {
+        @apply hover:bg-sky-600 hover:text-white active:bg-sky-500 active:text-white focus-visible:bg-sky-200
+    }
+
+    .btn-transparent {
+        @apply border-transparent dark:text-gray-100
+    }
+
+    .btn-transparent:not(:disabled) {
+        @apply hover:bg-sky-200 focus-visible:ring focus-visible:ring-offset-0 active:bg-gray-100 dark:hover:bg-gray-600 dark:active:bg-gray-800
+    }
+
+    .btn-inline:not(:disabled) {
+        @apply hover:text-sky-600 dark:hover:text-sky-300 focus-visible:text-sky-300
+    }
+
+    .btn:disabled {
+        @apply cursor-not-allowed
+    }
+
+    .btn.loading {
+        @apply opacity-70 gap-2 before:w-4 before:h-4 before:border-2 before:rounded-full before:border-l-transparent before:border-t-transparent before:animate-spin;
+    }
+}
+@tailwind utilities;
